@@ -14,8 +14,6 @@ struct PartyEncashment {
 }
 
 pub fn political_party_encashment() -> Result<(), Box<dyn Error>> {
-    
-
     let mut file = File::open("files/political_party_clean.xml")?;
     let mut xml_data = String::new();
     file.read_to_string(&mut xml_data)?;
@@ -47,12 +45,21 @@ pub fn political_party_encashment() -> Result<(), Box<dyn Error>> {
                         let party_name = parts[1..].join(" ");
                         donation.date_of_encashment = date.to_owned();
                         donation.political_party = party_name.to_owned();
-                    },
-                    1 => {donation.denomination = txt.into_owned();
+                    }
+                    1 => {
+                        donation.denomination = txt
+                            .into_owned()
+                            .trim()
+                            .trim()
+                            .replace(',', "")
+                            .parse()
+                            .unwrap();
+
                         // Add donation to the vector every three paragraphs
                         party_encashment.push(donation.clone());
-                        count += 1;}
-                  
+                        count += 1;
+                    }
+
                     _ => {}
                 }
                 paragraph_index = (paragraph_index + 1) % 2;

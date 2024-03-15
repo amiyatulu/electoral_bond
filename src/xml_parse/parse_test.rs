@@ -76,7 +76,8 @@ pub fn test_fn() -> Result<(), Box<dyn Error>> {
                     0 => donation.date_of_purchase = txt.into_owned(),
                     1 => donation.purchaser_name = txt.into_owned(),
                     2 => {
-                        donation.denomination = txt.into_owned();
+                        donation.denomination =
+                            txt.into_owned().trim().replace(',', "").parse().unwrap();
                         // Add donation to the vector every three paragraphs
                         company_donations.push(donation.clone());
                         count += 1;
