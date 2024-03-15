@@ -103,7 +103,7 @@ pub fn test_fn() -> Result<(), Box<dyn Error>> {
     // }
 
     // Write data to CSV
-    let mut csv_writer = Writer::from_path("company_donations.csv")?;
+    let mut csv_writer = Writer::from_path("output/company_donations.csv")?;
     csv_writer.write_record(&["Date of Purchase", "Purchaser Name", "Denomination"])?;
     for donation in &company_donations {
         csv_writer.write_record(&[
@@ -116,7 +116,7 @@ pub fn test_fn() -> Result<(), Box<dyn Error>> {
 
     // Write data to JSON
     let json_data = serde_json::to_string_pretty(&company_donations)?;
-    let mut json_file = File::create("company_donations.json")?;
+    let mut json_file = File::create("output/company_donations.json")?;
     json_file.write_all(json_data.as_bytes())?;
 
     Ok(())

@@ -1,10 +1,5 @@
 [
   {
-    "date_of_purchase": "Date of Purchase",
-    "purchaser_name": "Purchaser Name",
-    "denomination": "Denomination"
-  },
-  {
     "date_of_purchase": "12/Apr/2019",
     "purchaser_name": "A B C INDIA LIMITED ",
     "denomination": "1,00,000"
