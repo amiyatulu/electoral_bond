@@ -1,4 +1,5 @@
 use electoral_bond::polars_analysis::donors_by_money::donors_by_money;
+use electoral_bond::polars_analysis::party_by_money::party_encashment;
 use electoral_bond::xml_parse::parse_test::test_fn;
 use electoral_bond::xml_parse::political_party::political_party_encashment;
 fn main() {
@@ -6,6 +7,6 @@ fn main() {
     // let _party_encashment = political_party_encashment();
 
     // let _ = example1();
-
-    donors_by_money();
+    party_encashment();
+    // donors_by_money();
 }
