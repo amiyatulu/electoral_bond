@@ -1,0 +1,3 @@
+Total encashment all parties = 63871399000 (52.545209691352234 % of donations)
+Total company donations all  = 121555132000
+Amount of encashment by party missing = 57683733000
